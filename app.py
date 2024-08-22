@@ -21,9 +21,71 @@ def main():
         esg = 0
         enterprise_saas = 0
         others = 0
-
-#st.write(fintech)
-
+    if industry == "web3":
+        fintech = 0
+        web3 = 1
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "ecommerce":
+        fintech = 0
+        web3 = 0
+        ecommerce = 1
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "consumer_others":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 1
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "edtech":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 1
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "esg":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 1
+        enterprise_saas = 0
+        others = 0
+    if industry == "enterprise_saas":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 1
+        others = 0
+    if industry == "others":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 1
+        
+#business_model = st.text_input("Business Model")
     business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
     if business_model == "B2B":
         B2B = 1
@@ -46,10 +108,10 @@ def main():
         B2B2C = 0
         Others = 1
          
-    #business_model = st.text_input("Business Model")
+    
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     sucessranking_four_gdranking = 0
-    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1)
+    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) # to change drop down list of values 
     sucessranking_three_employees = 0
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
     valauation_divide_vdminusyf = 0
