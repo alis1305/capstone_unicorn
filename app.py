@@ -30,7 +30,7 @@ def main():
         B2C = 0
         B2B2C = 0
         Others = 0
-     if business_model == "B2C":
+    if business_model == "B2C":
         B2B = 0
         B2C = 1
         B2B2C = 0
@@ -40,7 +40,7 @@ def main():
         B2C = 0
         B2B2C = 1
         Others = 0
-     if business_model == "B2B2C":
+    if business_model == "B2B2C":
         B2B = 0
         B2C = 0
         B2B2C = 0
