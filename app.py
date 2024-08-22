@@ -109,7 +109,7 @@ def main():
         B2B2C = 0
         Others = 1
     country = st.text_input("Please select the country where your company is primarily based")
-    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1 #ask kishan how to amend this 
+    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this 
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
     sucessranking_four_gdranking = 0
