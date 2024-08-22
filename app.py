@@ -124,7 +124,7 @@ def main():
     if patent == "Yes":
         Yes = 1
         No = 0
-    if patent == "No"
+    if patent == "No":
         Yes = 0
         No = 1
     
