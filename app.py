@@ -11,15 +11,104 @@ def main():
 
     # User input for each feature
     #company = st.text_input("Company Name")
-    fintech = st.selectbox("Fintech", [0, 1])
-    web3 = st.selectbox("Web3", [0, 1])
-    ecommerce = st.selectbox("E-commerce", [0, 1])
-    consumer_others = st.selectbox("Consumer Others", [0, 1])
-    edtech = st.selectbox("EdTech", [0, 1])
-    esg = st.selectbox("ESG", [0, 1])
-    enterprise_saas = st.selectbox("Enterprise SaaS", [0, 1])
-    others = st.selectbox("Others", [0, 1])
-    business_model = st.text_input("Business Model")
+    
+    industry = st.selectbox("Industry",("Fintech", "Web3", "E-commerce", "Consumer Others","EdTech","ESG","Enterprise SaaS","Others"))
+    if industry == "Fintech":
+        fintech = 1
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "web3":
+        fintech = 0
+        web3 = 1
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "ecommerce":
+        fintech = 0
+        web3 = 0
+        ecommerce = 1
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "consumer_others":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 1
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "edtech":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 1
+        esg = 0
+        enterprise_saas = 0
+        others = 0
+    if industry == "esg":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 1
+        enterprise_saas = 0
+        others = 0
+    if industry == "enterprise_saas":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 1
+        others = 0
+    if industry == "others":
+        fintech = 0
+        web3 = 0
+        ecommerce = 0
+        consumer_others = 0
+        edtech = 0
+        esg = 0
+        enterprise_saas = 0
+        others = 1
+
+    #business_model = st.text_input("Business Model")
+    business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
+    if business_model == "B2B":
+        B2B = 1
+        B2C = 0
+        B2B2C = 0
+        Others = 0
+    if business_model == "B2C":
+        B2B = 0
+        B2C = 1
+        B2B2C = 0
+        Others = 0
+    if business_model == "B2B2C":
+        B2B = 0
+        B2C = 0
+        B2B2C = 1
+        Others = 0
+    if business_model == "B2B2C":
+        B2B = 0
+        B2C = 0
+        B2B2C = 0
+        Others = 1
+
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     sucessranking_four_gdranking = st.slider("Success Ranking Four (GD Ranking)", 0, 10, 5)
     glassdoor_total_employees = st.number_input("Glassdoor Total Employees", min_value=0, step=1)
