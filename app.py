@@ -7,7 +7,7 @@ model = load_model('model')
 
 # Define the Streamlit app
 def main():
-    st.title("Company Success Prediction")
+    st.title("Startup Success Prediction")
 
     # User input for each feature
     #company = st.text_input("Company Name")
@@ -25,6 +25,28 @@ def main():
 #st.write(fintech)
 
    
+    business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
+    if business_model == "B2B":
+        B2B = 1
+        B2C = 0
+        B2B2C = 0
+        Others = 0
+     if business_model == "B2C":
+        B2B = 0
+        B2C = 1
+        B2B2C = 0
+        Others = 0
+    if business_model == "B2B2C":
+        B2B = 0
+        B2C = 0
+        B2B2C = 1
+        Others = 0
+     if business_model == "B2B2C":
+        B2B = 0
+        B2C = 0
+        B2B2C = 0
+        Others = 1
+         
     business_model = st.text_input("Business Model")
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     sucessranking_four_gdranking = 0
