@@ -113,9 +113,9 @@ def main():
     sucessranking_four_gdranking = 0
     
     #glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) # to change drop down list of values 
-    glassdoor_total_employees = st.selectbox("Number of Employees",("<50","51 to 200","201 to 500","501 to 1000","1001 to 5000","5001 to 10000","10000+"))
+    glassdoor_total_employees = st.selectbox("Number of Employees",("1 to 50","51 to 200","201 to 500","501 to 1000","1001 to 5000","5001 to 10000","10000+"))
     if glassdoor_total_employee == "<50":
-        <50 = 1
+        1 to 50 = 1
         51 to 200 = 0
         201 to 500 = 0
         501 to 1000 = 0
