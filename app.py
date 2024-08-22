@@ -24,19 +24,19 @@ def main():
 
 #st.write(fintech)
 
-    
+   
     business_model = st.text_input("Business Model")
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
-    sucessranking_four_gdranking = st.slider("Success Ranking Four (GD Ranking)", 0, 10, 5)
-    glassdoor_total_employees = st.number_input("Glassdoor Total Employees", min_value=0, step=1)
-    sucessranking_three_employees = st.slider("Success Ranking Three (Employees)", 0, 10, 5)
+    sucessranking_four_gdranking = 0
+    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1)
+    sucessranking_three_employees = 0
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
-    valauation_divide_vdminusyf = st.number_input("Valuation Divide VD minus YF", min_value=0.0)
-    sucessranking_two_valdivideyear = st.slider("Success Ranking Two (Val Divide Year)", 0, 10, 5)
+    valauation_divide_vdminusyf = 0
+    sucessranking_two_valdivideyear = 0
     similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
-    year_operating = st.number_input("Year Operating", min_value=0)
-    years_to_unicorn = st.number_input("Years to Unicorn", min_value=0)
-    exit = st.selectbox("Exit", [0, 1])
+    year_operating = 0
+    years_to_unicorn = 0
+    exit = 0
     country = st.text_input("Country")
     patent = st.selectbox("Patent", [0, 1])
     pivot = st.selectbox("Pivot", [0, 1])
@@ -45,6 +45,11 @@ def main():
     tech_founder = st.selectbox("Tech Founder", [0, 1])
     foundersage_when_started = st.number_input("Founder's Age When Started", min_value=0)
     graduated_overseas_uni = st.selectbox("Graduated Overseas University", [0, 1])
+    # india_uni = 0
+    # if india_uni in "name of multi select box":
+        #india_uni = 1
+        #repeat this for the other uni 
+    
     sg_uni = st.selectbox("SG University", [0, 1])
     india_uni = st.selectbox("India University", [0, 1])
     us_uk_uni = st.selectbox("US/UK University", [0, 1])
