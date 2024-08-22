@@ -111,7 +111,66 @@ def main():
     
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     sucessranking_four_gdranking = 0
-    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) # to change drop down list of values 
+    
+    #glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) # to change drop down list of values 
+    glassdoor_total_employees = st.selectbox("Number of Employees",("<50","51 to 200","201 to 500","501 to 1000","1001 to 5000","5001 to 10000","10000+"))
+    if glassdoor_total_employee == "<50":
+        <50 = 1
+        51 to 200 = 0
+        201 to 500 = 0
+        501 to 1000 = 0
+        1001 to 5000 = 0
+        5001 to 10000 = 0
+        10000+ = 0
+    if glassdoor_total_employee == "51 to 200":
+        <50 = 0
+        51 to 200 = 1
+        201 to 500 = 0
+        501 to 1000 = 0
+        1001 to 5000 = 0
+        5001 to 10000 = 0
+        10000+ = 0   
+    if glassdoor_total_employee == "201 to 500":
+        <50 = 0
+        51 to 200 = 0
+        201 to 500 = 1
+        501 to 1000 = 0
+        1001 to 5000 = 0
+        5001 to 10000 = 0
+        10000+ = 0
+    if glassdoor_total_employee == "501 to 1000":
+        <50 = 0
+        51 to 200 = 0
+        201 to 500 = 0
+        501 to 1000 = 1
+        1001 to 5000 = 0
+        5001 to 10000 = 0
+        10000+ = 0
+    if glassdoor_total_employee == "1001 to 5000":
+        <50 = 0
+        51 to 200 = 0
+        201 to 500 = 0
+        501 to 1000 = 0
+        1001 to 5000 = 1
+        5001 to 10000 = 0
+        10000+ = 0
+    if glassdoor_total_employee == "5001 to 10000":
+        <50 = 0
+        51 to 200 = 0
+        201 to 500 = 0
+        501 to 1000 = 0
+        1001 to 5000 = 0
+        5001 to 10000 = 1
+        10000+ = 0
+    if glassdoor_total_employee == "10000+":
+        <50 = 0
+        51 to 200 = 0
+        201 to 500 = 0
+        501 to 1000 = 0
+        1001 to 5000 = 0
+        5001 to 10000 = 0
+        10000+ = 1
+    
     sucessranking_three_employees = 0
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
     valauation_divide_vdminusyf = 0
