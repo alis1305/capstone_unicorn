@@ -137,7 +137,7 @@ def main():
         5001 to 10000 = 0
         10000+ = 0
     if glassdoor_total_employee == "1001 to 5000":
-        1 to 200 = 0
+        51 to 200 = 0
         201 to 500 = 0
         501 to 1000 = 0
         1001 to 5000 = 1
