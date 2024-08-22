@@ -115,22 +115,22 @@ def main():
     #glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) # to change drop down list of values 
     glassdoor_total_employees = st.selectbox("Number of Employees",("1 to 200","201 to 500","501 to 1000","1001 to 5000","5001 to 10000","10000+"))
       
-    if glassdoor_total_employee == "51 to 200":
-        1 to 200 = 1
+    if glassdoor_total_employee == "1 to 200":
+        51 to 200 = 1
         201 to 500 = 0
         501 to 1000 = 0
         1001 to 5000 = 0
         5001 to 10000 = 0
         10000+ = 0   
     if glassdoor_total_employee == "201 to 500":
-        1 to 200 = 0
+        51 to 200 = 0
         201 to 500 = 1
         501 to 1000 = 0
         1001 to 5000 = 0
         5001 to 10000 = 0
         10000+ = 0
     if glassdoor_total_employee == "501 to 1000":
-        1 to 200 = 0
+        51 to 200 = 0
         201 to 500 = 0
         501 to 1000 = 1
         1001 to 5000 = 0
@@ -144,14 +144,14 @@ def main():
         5001 to 10000 = 0
         10000+ = 0
     if glassdoor_total_employee == "5001 to 10000":
-        1 to 200 = 0
+        51 to 200 = 0
         201 to 500 = 0
         501 to 1000 = 0
         1001 to 5000 = 0
         5001 to 10000 = 1
         10000+ = 0
     if glassdoor_total_employee == "10000+":
-        1 to 200 = 0
+        51 to 200 = 0
         201 to 500 = 0
         501 to 1000 = 0
         1001 to 5000 = 0
