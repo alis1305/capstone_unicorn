@@ -108,20 +108,26 @@ def main():
         B2C = 0
         B2B2C = 0
         Others = 1
-
+    country = st.text_input("Please select the country where your company is primarily based")
+    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1 #ask kishan how to amend this 
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
-    sucessranking_four_gdranking = st.slider("Success Ranking Four (GD Ranking)", 0, 10, 5)
-    glassdoor_total_employees = st.number_input("Glassdoor Total Employees", min_value=0, step=1)
-    sucessranking_three_employees = st.slider("Success Ranking Three (Employees)", 0, 10, 5)
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
-    valauation_divide_vdminusyf = st.number_input("Valuation Divide VD minus YF", min_value=0.0)
-    sucessranking_two_valdivideyear = st.slider("Success Ranking Two (Val Divide Year)", 0, 10, 5)
+    sucessranking_four_gdranking = 0
+    sucessranking_three_employees = 0
+    valauation_divide_vdminusyf = 0
+    sucessranking_two_valdivideyear = 0
+    year_operating = 0
+    years_to_unicorn = 0
+    exit = 0
     similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
-    year_operating = st.number_input("Year Operating", min_value=0)
-    years_to_unicorn = st.number_input("Years to Unicorn", min_value=0)
-    exit = st.selectbox("Exit", [0, 1])
-    country = st.text_input("Country")
-    patent = st.selectbox("Patent", [0, 1])
+    patent = st.selectbox("Does your company currently hold any patents or is it in the process of obtaining one?", ("Yes", "No"))
+    if patent == "Yes":
+        Yes = 1
+        No = 0
+    if patent == "No"
+        Yes = 0
+        No = 1
+    
     pivot = st.selectbox("Pivot", [0, 1])
     subsidiary_corporatespinoff = st.selectbox("Subsidiary / Corporate Spinoff", [0, 1])
     firsttime_founder = st.selectbox("First-time Founder", [0, 1])
