@@ -24,7 +24,6 @@ def main():
 
 #st.write(fintech)
 
-   
     business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
     if business_model == "B2B":
         B2B = 1
@@ -47,7 +46,7 @@ def main():
         B2B2C = 0
         Others = 1
          
-    business_model = st.text_input("Business Model")
+    #business_model = st.text_input("Business Model")
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     sucessranking_four_gdranking = 0
     glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1)
