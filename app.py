@@ -9,8 +9,8 @@ model = load_model('model')
 def main():
     st.title("Company Success Prediction")
 
-    # User input for each feature
-    #company = st.text_input("Company Name")
+# User input for each feature
+#company = st.text_input("Company Name")
     
     industry = st.selectbox("Industry",("Fintech", "Web3", "E-commerce", "Consumer Others","EdTech","ESG","Enterprise SaaS","Others"))
     if industry == "Fintech":
@@ -85,8 +85,7 @@ def main():
         esg = 0
         enterprise_saas = 0
         others = 1
-
-    #business_model = st.text_input("Business Model")
+#business_model = st.text_input("Business Model")
     business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
     if business_model == "B2B":
         B2B = 1
@@ -108,9 +107,13 @@ def main():
         B2C = 0
         B2B2C = 0
         Others = 1
+   
     country = st.text_input("Please select the country where your company is primarily based")
-    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this 
+    
+    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this because need to incl a range <51 employees, which is not part of the model 
+    
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
+    
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
     sucessranking_four_gdranking = 0
     sucessranking_three_employees = 0
@@ -119,7 +122,17 @@ def main():
     year_operating = 0
     years_to_unicorn = 0
     exit = 0
-    similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
+    
+#similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
+
+    similar_businessmodel_overseas = st.selectbox("Is there a Similar Business Model Overseas?",("Yes", "No", ))
+    if similar_businessmodel_overseas == "Yes":
+        Yes = 1
+        No = 0
+    if similar_businessmodel_overseas == "No":
+        Yes = 0
+        No = 1
+   
     patent = st.selectbox("Does your company currently hold any patents or is it in the process of obtaining one?", ("Yes", "No"))
     if patent == "Yes":
         Yes = 1
