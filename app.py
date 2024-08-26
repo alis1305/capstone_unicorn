@@ -181,14 +181,47 @@ def main():
         
     foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=0)
     
-    graduated_overseas_uni = st.selectbox("Graduated Overseas University", [0, 1])
-    sg_uni = st.selectbox("SG University", [0, 1])
-    india_uni = st.selectbox("India University", [0, 1])
-    us_uk_uni = st.selectbox("US/UK University", [0, 1])
-    sea_uni = st.selectbox("SEA University", [0, 1])
-    china_uni = st.selectbox("China University", [0, 1])
-    aust_uni = st.selectbox("Aust University", [0, 1])
-    no_graduate = st.selectbox("No Graduate", [0, 1])
+    #graduated_overseas_uni = st.selectbox("Graduated Overseas University", [0, 1])
+    graduated_overseas_uni = st.selectbox("Have any of your founders graduated from a university abroad?", ("Yes", "No"))
+    if graduated_overseas_uni == "Yes":
+        Yes = 1
+        No = 0
+    if graduated_overseas_uni == "No":
+        Yes = 0
+        No = 1 
+        
+#ask kishan: how do i make the university as selection box, similar to country
+    university = st.multiselect("Please select the country where your founders graduated from university",
+    ["Australia University","China University", "India University", "Singapore University", "University based in other Southeast Asia countries","University in Europe or US", "Others or Did not graduate"],)
+    if university == "Australia University":
+        aust_uni = 1
+        china_uni = 0
+        india_uni = 0
+        sg_uni = 0
+        sea_uni = 0
+        us_uk_uni = 0
+        enterprise_saas = 0
+        no_graduate = 0
+    if university == "China University":
+        aust_uni = 0
+        china_uni = 1
+        india_uni = 0
+        sg_uni = 0
+        sea_uni = 0
+        us_uk_uni = 0
+        enterprise_saas = 0
+        no_graduate = 0
+    if university == "India University":
+        aust_uni = 0
+        china_uni = 0
+        india_uni = 1
+        sg_uni = 0
+        sea_uni = 0
+        us_uk_uni = 0
+        enterprise_saas = 0
+        no_graduate = 0
+
+#ask kishan: how do i make the VC as selection box, similar to country     
     investor_vertex = st.selectbox("Investor Vertex", [0, 1])
     investor_500global = st.selectbox("Investor 500 Global", [0, 1])
     investor_eastvc = st.selectbox("Investor East VC", [0, 1])
