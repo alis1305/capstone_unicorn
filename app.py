@@ -190,9 +190,8 @@ def main():
         Yes = 0
         No = 1 
         
-#ask kishan: how do i make the university as selection box, similar to country
-    university = st.multiselect("Please select the country where your founders graduated from university",
-    ["Australia University","China University", "India University", "Singapore University", "University based in other Southeast Asia countries","University in Europe or US", "Others or Did not graduate"],)
+    university = st.multiselect("Select the country where your founders earned their university degrees (you may choose more than one)",
+    ["Australia University","China University", "India University", "Singapore University", "University based in other Southeast Asia countries","University based in Europe or US", "Others or Did not graduate from university"],)
     if university == "Australia University":
         aust_uni = 1
         china_uni = 0
@@ -200,7 +199,6 @@ def main():
         sg_uni = 0
         sea_uni = 0
         us_uk_uni = 0
-        enterprise_saas = 0
         no_graduate = 0
     if university == "China University":
         aust_uni = 0
@@ -209,7 +207,6 @@ def main():
         sg_uni = 0
         sea_uni = 0
         us_uk_uni = 0
-        enterprise_saas = 0
         no_graduate = 0
     if university == "India University":
         aust_uni = 0
@@ -218,22 +215,70 @@ def main():
         sg_uni = 0
         sea_uni = 0
         us_uk_uni = 0
-        enterprise_saas = 0
         no_graduate = 0
-
-#ask kishan: how do i make the VC as selection box, similar to country     
-    investor_vertex = st.selectbox("Investor Vertex", [0, 1])
-    investor_500global = st.selectbox("Investor 500 Global", [0, 1])
-    investor_eastvc = st.selectbox("Investor East VC", [0, 1])
-    investor_sequoia = st.selectbox("Investor Sequoia", [0, 1])
-    investor_yc = st.selectbox("Investor YC", [0, 1])
-    investor_insignia = st.selectbox("Investor Insignia", [0, 1])
-    investor_ggv = st.selectbox("Investor GGV", [0, 1])
-    investor_wavemaker = st.selectbox("Investor Wavemaker", [0, 1])
-    investor_openspace = st.selectbox("Investor Openspace", [0, 1])
-    investor_alphajwc = st.selectbox("Investor Alpha JWC", [0, 1])
-    investor_jungle = st.selectbox("Investor Jungle", [0, 1])
-    investor_cyberagentcapital = st.selectbox("Investor CyberAgent Capital", [0, 1])
+    if university == "Singapore University":
+        aust_uni = 0
+        china_uni = 0
+        india_uni = 0
+        sg_uni = 1
+        sea_uni = 0
+        us_uk_uni = 0
+        no_graduate = 0
+    if university == "University based in other Southeast Asia countries":
+        aust_uni = 0
+        china_uni = 0
+        india_uni = 0
+        sg_uni = 0
+        sea_uni = 1
+        us_uk_uni = 0
+        no_graduate = 0
+    if university == "University based in Europe or US":
+        aust_uni = 0
+        china_uni = 0
+        india_uni = 0
+        sg_uni = 0
+        sea_uni = 0
+        us_uk_uni = 1
+        no_graduate = 0
+    if university == "Others or Did not graduate from university":
+        aust_uni = 0
+        china_uni = 0
+        india_uni = 0
+        sg_uni = 0
+        sea_uni = 0
+        us_uk_uni = 0
+        no_graduate = 1
+        
+#ask kishan how to add other investors into the list         
+    investor = st.multiselect("Select the investor(s) that have invested in your company (you may choose more than one)",
+    ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Others"],)
+    if university == "500 Global":
+        investor_500global = 1
+        investor_alphajwc = 0
+        investor_cyberagentcapital = 0
+        investor_eastvc = 0
+        investor_ggv = 0
+        investor_insignia = 0
+        investor_jungle = 0
+        investor_openspace = 0
+        investor_sequoia = 0
+        investor_vertex = 0
+        investor_wavemaker = 0
+        investor_yc = 0
+        Others = 0
+        
+    #investor_vertex = st.selectbox("Investor Vertex", [0, 1])
+    #investor_500global = st.selectbox("Investor 500 Global", [0, 1])
+    #investor_eastvc = st.selectbox("Investor East VC", [0, 1])
+    #investor_sequoia = st.selectbox("Investor Sequoia", [0, 1])
+    #investor_yc = st.selectbox("Investor YC", [0, 1])
+    #investor_insignia = st.selectbox("Investor Insignia", [0, 1])
+    #investor_ggv = st.selectbox("Investor GGV", [0, 1])
+    #investor_wavemaker = st.selectbox("Investor Wavemaker", [0, 1])
+    #investor_openspace = st.selectbox("Investor Openspace", [0, 1])
+    #investor_alphajwc = st.selectbox("Investor Alpha JWC", [0, 1])
+    #investor_jungle = st.selectbox("Investor Jungle", [0, 1])
+    #investor_cyberagentcapital = st.selectbox("Investor CyberAgent Capital", [0, 1])
 
     # Create a dictionary with the inputs
     input_data = {
