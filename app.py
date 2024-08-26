@@ -108,7 +108,11 @@ def main():
         B2B2C = 0
         Others = 1
    
-    country = st.text_input("Please select the country where your company is primarily based")
+    #country = st.text_input("Please select the country where your company is primarily based in")
+    country = st.multiselect("Please select the country where your company is primarily based in",
+    ["Australia","Indonesia","Malaysia","Philippines", "Singapore", "Thailand", "Vietnam"],)
+
+    st.write("You selected:", options)
     
     glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this because need to incl a range <51 employees, which is not part of the model 
     
@@ -125,8 +129,8 @@ def main():
     exit = 0
     
 #similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
-
-    similar_businessmodel_overseas = st.selectbox("Is there a Similar Business Model Overseas?",("Yes", "No", ))
+#check with Kishan how to include "Yes"/"No" as selection 
+    similar_businessmodel_overseas = st.selectbox("Is there a Similar Business Model Overseas?",("Yes", "No")) 
     if similar_businessmodel_overseas == "Yes":
         Yes = 1
         No = 0
@@ -152,7 +156,7 @@ def main():
         No = 1
     
     #subsidiary_corporatespinoff = st.selectbox("Subsidiary / Corporate Spinoff", [0, 1])
-    subsidiary_corporatespinoff = st.selectbox("Is your company a subsidiary of another company or a result of a corporate spinoff??", ("Yes", "No"))
+    subsidiary_corporatespinoff = st.selectbox("Is your company a subsidiary of another company or a result of a corporate spinoff?", ("Yes", "No"))
     if subsidiary_corporatespinoff == "Yes":
         Yes = 1
         No = 0
@@ -160,9 +164,25 @@ def main():
         Yes = 0
         No = 1
     
-    firsttime_founder = st.selectbox("First-time Founder", [0, 1])
-    tech_founder = st.selectbox("Tech Founder", [0, 1])
-    foundersage_when_started = st.number_input("Founder's Age When Started", min_value=0)
+    firsttime_founder = st.selectbox("Is anyone on your team a repeat founder", ("Yes", "No"))
+    if firsttime_founder == "Yes":
+        Yes = 0
+        No = 1
+    if firsttime_founder == "No":
+        Yes = 1
+        No = 0
+    
+    #tech_founder = st.selectbox("Tech Founder", [0, 1])
+    tech_founder = st.selectbox("Does any of your founders have a technical background?", ("Yes", "No"))
+    if tech_founder == "Yes":
+        Yes = 1
+        No = 0
+    if tech_founder == "No":
+        Yes = 0
+        No = 1    
+        
+    foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=0)
+    
     graduated_overseas_uni = st.selectbox("Graduated Overseas University", [0, 1])
     sg_uni = st.selectbox("SG University", [0, 1])
     india_uni = st.selectbox("India University", [0, 1])
