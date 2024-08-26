@@ -109,6 +109,7 @@ def main():
         Others = 1
    
     #country = st.text_input("Please select the country where your company is primarily based in")
+    # ask kishan: do i need to include the "if" for the multiselect query ?
     country = st.multiselect("Please select the country where your company is primarily based in",
     ["Australia","Indonesia","Malaysia","Philippines", "Singapore", "Thailand", "Vietnam", "Others"],)
     
