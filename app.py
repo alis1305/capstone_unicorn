@@ -115,6 +115,7 @@ def main():
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
     
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
+    
     sucessranking_four_gdranking = 0
     sucessranking_three_employees = 0
     valauation_divide_vdminusyf = 0
@@ -141,8 +142,24 @@ def main():
         Yes = 0
         No = 1
     
-    pivot = st.selectbox("Pivot", [0, 1])
-    subsidiary_corporatespinoff = st.selectbox("Subsidiary / Corporate Spinoff", [0, 1])
+    #pivot = st.selectbox("Pivot", [0, 1])
+    pivot = st.selectbox("Has your company pivoted from its original idea or direction?", ("Yes", "No"))
+    if pivot == "Yes":
+        Yes = 1
+        No = 0
+    if pivot == "No":
+        Yes = 0
+        No = 1
+    
+    #subsidiary_corporatespinoff = st.selectbox("Subsidiary / Corporate Spinoff", [0, 1])
+    subsidiary_corporatespinoff = st.selectbox("Is your company a subsidiary of another company or a result of a corporate spinoff??", ("Yes", "No"))
+    if subsidiary_corporatespinoff == "Yes":
+        Yes = 1
+        No = 0
+    if subsidiary_corporatespinoff == "No":
+        Yes = 0
+        No = 1
+    
     firsttime_founder = st.selectbox("First-time Founder", [0, 1])
     tech_founder = st.selectbox("Tech Founder", [0, 1])
     foundersage_when_started = st.number_input("Founder's Age When Started", min_value=0)
