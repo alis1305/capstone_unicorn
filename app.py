@@ -110,9 +110,7 @@ def main():
    
     #country = st.text_input("Please select the country where your company is primarily based in")
     country = st.multiselect("Please select the country where your company is primarily based in",
-    ["Australia","Indonesia","Malaysia","Philippines", "Singapore", "Thailand", "Vietnam"],)
-
-    st.write("You selected:", country)
+    ["Australia","Indonesia","Malaysia","Philippines", "Singapore", "Thailand", "Vietnam", "Others"],)
     
     glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this because need to incl a range <51 employees, which is not part of the model 
     
