@@ -281,7 +281,7 @@ def main():
     #investor_jungle = st.selectbox("Investor Jungle", [0, 1])
     #investor_cyberagentcapital = st.selectbox("Investor CyberAgent Capital", [0, 1])
 
-    # Create a dictionary with the inputs
+# Create a dictionary with the inputs
     input_data = {
         #'company': company,
         'fintech': fintech,
@@ -311,7 +311,7 @@ def main():
         'firsttime_founder': firsttime_founder,
         'tech_founder': tech_founder,
         'foundersage_when_started': foundersage_when_started,
-         'graduated_overseas_uni': graduated_overseas_uni,
+        'graduated_overseas_uni': graduated_overseas_uni,
         'sg_uni': sg_uni,
         'india_uni': india_uni,
         'us_uk_uni': us_uk_uni,
