@@ -37,7 +37,7 @@ def main():
 # Get user input for business model using selectbox
     business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
 # Initialize business model encoded variable
-business_model_encoded = -1  # Default value for an unrecognized model (Others)
+    business_model_Encoded = -1  # Default value for an unrecognized model (Others)
 # Set the corresponding variable based on business model choice
     if business_model == "B2B":
         business_model_Encoded = 0
