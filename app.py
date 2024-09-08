@@ -12,113 +12,198 @@ def main():
 # User input for each feature
 #company = st.text_input("Company Name")
     
+# Get user input for industry using selectbox
     industry = st.selectbox("Industry",("Fintech", "Web3", "E-commerce", "Consumer Others","EdTech","ESG","Enterprise SaaS","Others"))
+# Initialize all variables to 0
+    fintech = web3 = ecommerce = consumer_others = edtech = esg = enterprise_saas = others = 0
+# Set the corresponding variable to 1 based on industry choice
     if industry == "Fintech":
         fintech = 1
-        web3 = 0
-        ecommerce = 0
-        consumer_others = 0
-        edtech = 0
-        esg = 0
-        enterprise_saas = 0
-        others = 0
-    if industry == "web3":
-        fintech = 0
+    elif industry == "Web3":
         web3 = 1
-        ecommerce = 0
-        consumer_others = 0
-        edtech = 0
-        esg = 0
-        enterprise_saas = 0
-        others = 0
-    if industry == "ecommerce":
-        fintech = 0
-        web3 = 0
+    elif industry == "E-commerce":
         ecommerce = 1
-        consumer_others = 0
-        edtech = 0
-        esg = 0
-        enterprise_saas = 0
-        others = 0
-    if industry == "consumer_others":
-        fintech = 0
-        web3 = 0
-        ecommerce = 0
+    elif industry == "Consumer Others":
         consumer_others = 1
-        edtech = 0
-        esg = 0
-        enterprise_saas = 0
-        others = 0
-    if industry == "edtech":
-        fintech = 0
-        web3 = 0
-        ecommerce = 0
-        consumer_others = 0
+    elif industry == "EdTech":
         edtech = 1
-        esg = 0
-        enterprise_saas = 0
-        others = 0
-    if industry == "esg":
-        fintech = 0
-        web3 = 0
-        ecommerce = 0
-        consumer_others = 0
-        edtech = 0
+    elif industry == "ESG":
         esg = 1
-        enterprise_saas = 0
-        others = 0
-    if industry == "enterprise_saas":
-        fintech = 0
-        web3 = 0
-        ecommerce = 0
-        consumer_others = 0
-        edtech = 0
-        esg = 0
+    elif industry == "Enterprise SaaS":
         enterprise_saas = 1
-        others = 0
-    if industry == "others":
-        fintech = 0
-        web3 = 0
-        ecommerce = 0
-        consumer_others = 0
-        edtech = 0
-        esg = 0
-        enterprise_saas = 0
-        others = 1
-#business_model = st.text_input("Business Model")
+    elif industry == "Others":
+        others = 1       
+        
+# Get user input for business model using selectbox
     business_model = st.selectbox("Business Model",("B2B","B2C","B2B2C","Others"))
+# Initialize business model encoded variable
+business_model_encoded = -1  # Default value for an unrecognized model (Others)
+# Set the corresponding variable based on business model choice
     if business_model == "B2B":
-        B2B = 1
-        B2C = 0
-        B2B2C = 0
-        Others = 0
-    if business_model == "B2C":
-        B2B = 0
-        B2C = 1
-        B2B2C = 0
-        Others = 0
-    if business_model == "B2B2C":
-        B2B = 0
-        B2C = 0
-        B2B2C = 1
-        Others = 0
-    if business_model == "B2B2C":
-        B2B = 0
-        B2C = 0
-        B2B2C = 0
-        Others = 1
+        business_model_Encoded = 0
+    elif business_model == "B2C":
+        business_model_Encoded = 2
+    elif business_model == "B2B2C":
+        business_model_Encoded = 1
+    else:
+        business_model_Encoded = -1  # "Others" category or any unrecognized category
    
-    #country = st.text_input("Please select the country where your company is primarily based in")
-    # ask kishan: do i need to include the "if" for the multiselect query ?
-    country = st.multiselect("Please select the country where your company is primarily based in",
+# Get user input for country of headquarter using selectbox
+    country = st.selectbox("Please select the country where your company is primarily based in",
     ["Australia","Indonesia","Malaysia","Philippines", "Singapore", "Thailand", "Vietnam", "Others"],)
+# Set the corresponding variable to 1 based on country choice
+    if country == "Australia":
+        country_Encoded = 0
+    elif country == "Indonesia":
+        country_Encoded = 1
+    elif country == "Malaysia":
+        country_Encoded = 2
+    elif country == "Philippines":
+        country_Encoded = 3
+    elif country == "Singapore":
+        country_Encoded = 4
+    elif country == "Thailand":
+        country_Encoded = 5
+    elif country == "Vietnam":
+        country_Encoded = 6
+    else:
+        country_Encoded = -1  # "Others" category or any unrecognized category
+
+#Get user input for total number of employees in the company
+    glassdoor_total_employees = st.selectbox("Total Number of Employees in the Company", ("0 to 200", "201 to 500", "501 to 1000", "1001 to 5000", "5001 to 10000", "10000+"))
+# Initialize glassdoor total employees encoded variable
+    glassdoor_total_employees_Encoded = -1  # Default value for an unrecognized model (Others)
+# Set the corresponding variable based on number of employees choice
+    if glassdoor_total_employees == "10000+":
+        glassdoor_total_employees_Encoded = 0
+    elif glassdoor_total_employees == "1001 to 5000":
+        glassdoor_total_employees_Encoded = 1
+    elif glassdoor_total_employees == "201 to 500":
+        glassdoor_total_employees_Encoded = 2
+    elif glassdoor_total_employees == "5001 to 10000":
+        glassdoor_total_employees_Encoded = 3
+    elif glassdoor_total_employees == "501 to 1000":
+        glassdoor_total_employees_Encoded = 4
+    elif glassdoor_total_employees == "0 to 200":
+        glassdoor_total_employees_Encoded = 5
     
-    glassdoor_total_employees = st.number_input("Total Employees", min_value=0, step=1) #ask kishan how to amend this because need to incl a range <51 employees, which is not part of the model 
-    
+# Get user input for Glassdoor rating and recommendation percentage using sliders
+# Slider for rating between 0.0 and 5.0, default at 3.5
     glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
-    
+ # Slider for recommendation percentage between 0 and 100, default at 50    
     glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
+        
+# Get user input for similar business model overseas
+#similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
+    similar_businessmodel_overseas = st.selectbox("Is there a Similar Business Model Overseas?",("Yes", "No")) 
+    if similar_businessmodel_overseas == "Yes":
+        similar_businessmodel_overseas = 1
+    else: # This will handle the case when the input is "No"
+        similar_businessmodel_overseas = 0
+
+# Get user input for patent holding
+    patent = st.selectbox("Does your company currently hold any patents or is it in the process of obtaining one?", ("Yes", "No"))
+    if patent == "Yes":
+        patent = 1
+    else: # This will handle the case when the input is "No"
+        patent = 0
+
+# Get user input if the company has pivoted from their original idea or direction
+    pivot = st.selectbox("Has your company pivoted from its original idea or direction?", ("Yes", "No"))
+    if pivot == "Yes":
+        pivot = 1
+    else: # This will handle the case when the input is "No"
+        pivot = 0
     
+# Get user input if the company is a subsidiary of another company or it is a corporate spinoff 
+    subsidiary_corporatespinoff = st.selectbox("Is your company a subsidiary of another company or a result of a corporate spinoff?", ("Yes", "No"))
+    if subsidiary_corporatespinoff == "Yes":
+        subsidiary_corporatespinoff = 1 #company is a subsidiary or corporate spinoff 
+    else: # This will handle the case when the input is "No"
+        subsidiary_corporatespinoff = 0
+
+# Get user input if the any of the team member is a repeat founder 
+    firsttime_founder = st.selectbox("Is everyone on the founding team a first-time founder?", ("Yes", "No"))
+    if firsttime_founder == "Yes":
+        firsttime_founder = 1 # First-time founder
+    else:
+        firsttime_founder = 0 # Not First-time founder
+
+# Get user input if the any of the team member has technical background    
+    tech_founder = st.selectbox("Does any of your founders have a technical background?", ("Yes", "No"))
+    if tech_founder == "Yes":
+        tech_founder = 1 # the founding team has tech founder
+    else:
+        tech_founder = 0 # the founding team does not have any tech founder 
+
+# Get user input for the founder's age when they started the company
+    foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=0)
+    
+# Get user input if any member of the founding team graduated from overseas unversity 
+    graduated_overseas_uni = st.selectbox("Has any member of your founding team graduated from a university outside your home country?", ("Yes", "No"))
+    if graduated_overseas_uni == "Yes":
+        graduated_overseas_uni = 1
+    else:
+        graduated_overseas_uni = 0
+
+# Initialize variables for each university category
+    aust_uni = china_uni = india_uni = sg_uni = sea_uni = us_uk_uni = no_graduate = 0
+
+# Get user to select the country where the founding team graduated from
+    university = st.multiselect("Select the country where your founders earned their university degrees (you may choose more than one)",
+    ["Australia University", "China University", "India University", "Singapore University", 
+     "University based in other Southeast Asia countries", "University based in Europe or US", 
+     "Others or Did not graduate from university"])
+    if "Australia University" in university:
+        aust_uni = 1
+    if "China University" in university:
+        china_uni = 1
+    if "India University" in university:
+        india_uni = 1
+    if "Singapore University" in university:
+        sg_uni = 1
+    if "University based in other Southeast Asia countries" in university:
+        sea_uni = 1
+    if "University based in Europe or US" in university:
+        us_uk_uni = 1
+    if "Others or Did not graduate from university" in university:
+        no_graduate = 1
+
+
+# Initialize variables for each investor category
+    investor_500global = investor_alphajwc = investor_cyberagentcapital = investor_eastvc = investor_ggv = 0
+    investor_insignia = investor_jungle = investor_openspace = investor_sequoia = investor_vertex = 0
+    investor_wavemaker = investor_yc = Others = 0
+# Get user to select the investor(s) that have invested in their company        
+    investor = st.multiselect("Select the investor(s) that have invested in your company (you may choose more than one)",
+    ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Others"],)
+    if "500 Global" in investor:
+        investor_500global = 1
+    if "Alpha JWC" in investor:
+        investor_alphajwc = 1
+    if "Cyber Agent Capital" in investor:
+        investor_cyberagentcapital = 1
+    if "East Venture" in investor:
+        investor_eastvc = 1
+    if "Golden Gate Venture" in investor:
+        investor_ggv = 1
+    if "Insignia" in investor:
+        investor_insignia = 1
+    if "Jungle Venture" in investor:
+        investor_jungle = 1
+    if "Openspace VC" in investor:
+        investor_openspace = 1
+    if "Sequoia" in investor:
+        investor_sequoia = 1
+    if "Vertex" in investor:
+        investor_vertex = 1
+    if "Wavemaker" in investor:
+        investor_wavemaker = 1
+    if "Y Combinator" in investor:
+        investor_yc = 1
+    if "Others" in investor:
+        Others = 1
+
     sucessranking_four_gdranking = 0
     sucessranking_three_employees = 0
     valauation_divide_vdminusyf = 0
@@ -126,160 +211,6 @@ def main():
     year_operating = 0
     years_to_unicorn = 0
     exit = 0
-    
-#similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
-#check with Kishan how to include "Yes"/"No" as selection 
-    similar_businessmodel_overseas = st.selectbox("Is there a Similar Business Model Overseas?",("Yes", "No")) 
-    if similar_businessmodel_overseas == "Yes":
-        Yes = 1
-        No = 0
-    if similar_businessmodel_overseas == "No":
-        Yes = 0
-        No = 1
-   
-    patent = st.selectbox("Does your company currently hold any patents or is it in the process of obtaining one?", ("Yes", "No"))
-    if patent == "Yes":
-        Yes = 1
-        No = 0
-    if patent == "No":
-        Yes = 0
-        No = 1
-    
-    #pivot = st.selectbox("Pivot", [0, 1])
-    pivot = st.selectbox("Has your company pivoted from its original idea or direction?", ("Yes", "No"))
-    if pivot == "Yes":
-        Yes = 1
-        No = 0
-    if pivot == "No":
-        Yes = 0
-        No = 1
-    
-    #subsidiary_corporatespinoff = st.selectbox("Subsidiary / Corporate Spinoff", [0, 1])
-    subsidiary_corporatespinoff = st.selectbox("Is your company a subsidiary of another company or a result of a corporate spinoff?", ("Yes", "No"))
-    if subsidiary_corporatespinoff == "Yes":
-        Yes = 1
-        No = 0
-    if subsidiary_corporatespinoff == "No":
-        Yes = 0
-        No = 1
-    
-    firsttime_founder = st.selectbox("Is anyone on your team a repeat founder", ("Yes", "No"))
-    if firsttime_founder == "Yes":
-        Yes = 0
-        No = 1
-    if firsttime_founder == "No":
-        Yes = 1
-        No = 0
-    
-    #tech_founder = st.selectbox("Tech Founder", [0, 1])
-    tech_founder = st.selectbox("Does any of your founders have a technical background?", ("Yes", "No"))
-    if tech_founder == "Yes":
-        Yes = 1
-        No = 0
-    if tech_founder == "No":
-        Yes = 0
-        No = 1    
-        
-    foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=0)
-    
-    #graduated_overseas_uni = st.selectbox("Graduated Overseas University", [0, 1])
-    graduated_overseas_uni = st.selectbox("Have any of your founders graduated from a university abroad?", ("Yes", "No"))
-    if graduated_overseas_uni == "Yes":
-        Yes = 1
-        No = 0
-    if graduated_overseas_uni == "No":
-        Yes = 0
-        No = 1 
-        
-    university = st.multiselect("Select the country where your founders earned their university degrees (you may choose more than one)",
-    ["Australia University","China University", "India University", "Singapore University", "University based in other Southeast Asia countries","University based in Europe or US", "Others or Did not graduate from university"],)
-    if university == "Australia University":
-        aust_uni = 1
-        china_uni = 0
-        india_uni = 0
-        sg_uni = 0
-        sea_uni = 0
-        us_uk_uni = 0
-        no_graduate = 0
-    if university == "China University":
-        aust_uni = 0
-        china_uni = 1
-        india_uni = 0
-        sg_uni = 0
-        sea_uni = 0
-        us_uk_uni = 0
-        no_graduate = 0
-    if university == "India University":
-        aust_uni = 0
-        china_uni = 0
-        india_uni = 1
-        sg_uni = 0
-        sea_uni = 0
-        us_uk_uni = 0
-        no_graduate = 0
-    if university == "Singapore University":
-        aust_uni = 0
-        china_uni = 0
-        india_uni = 0
-        sg_uni = 1
-        sea_uni = 0
-        us_uk_uni = 0
-        no_graduate = 0
-    if university == "University based in other Southeast Asia countries":
-        aust_uni = 0
-        china_uni = 0
-        india_uni = 0
-        sg_uni = 0
-        sea_uni = 1
-        us_uk_uni = 0
-        no_graduate = 0
-    if university == "University based in Europe or US":
-        aust_uni = 0
-        china_uni = 0
-        india_uni = 0
-        sg_uni = 0
-        sea_uni = 0
-        us_uk_uni = 1
-        no_graduate = 0
-    if university == "Others or Did not graduate from university":
-        aust_uni = 0
-        china_uni = 0
-        india_uni = 0
-        sg_uni = 0
-        sea_uni = 0
-        us_uk_uni = 0
-        no_graduate = 1
-        
-#ask kishan how to add other investors into the list         
-    investor = st.multiselect("Select the investor(s) that have invested in your company (you may choose more than one)",
-    ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Others"],)
-    if university == "500 Global":
-        investor_500global = 1
-        investor_alphajwc = 0
-        investor_cyberagentcapital = 0
-        investor_eastvc = 0
-        investor_ggv = 0
-        investor_insignia = 0
-        investor_jungle = 0
-        investor_openspace = 0
-        investor_sequoia = 0
-        investor_vertex = 0
-        investor_wavemaker = 0
-        investor_yc = 0
-        Others = 0
-        
-    #investor_vertex = st.selectbox("Investor Vertex", [0, 1])
-    #investor_500global = st.selectbox("Investor 500 Global", [0, 1])
-    #investor_eastvc = st.selectbox("Investor East VC", [0, 1])
-    #investor_sequoia = st.selectbox("Investor Sequoia", [0, 1])
-    #investor_yc = st.selectbox("Investor YC", [0, 1])
-    #investor_insignia = st.selectbox("Investor Insignia", [0, 1])
-    #investor_ggv = st.selectbox("Investor GGV", [0, 1])
-    #investor_wavemaker = st.selectbox("Investor Wavemaker", [0, 1])
-    #investor_openspace = st.selectbox("Investor Openspace", [0, 1])
-    #investor_alphajwc = st.selectbox("Investor Alpha JWC", [0, 1])
-    #investor_jungle = st.selectbox("Investor Jungle", [0, 1])
-    #investor_cyberagentcapital = st.selectbox("Investor CyberAgent Capital", [0, 1])
 
 # Create a dictionary with the inputs
     input_data = {
@@ -291,23 +222,26 @@ def main():
         'edtech ': edtech,
         'esg': esg,
         'enterprise_saas': enterprise_saas,
-        'others ': others,
+        'others': others,
         'business_model': business_model,
+        'business_model_Encoded': business_model_Encoded,
         'glassdoor_rating': glassdoor_rating,
         'sucessranking_four_gdranking': sucessranking_four_gdranking,
         'glassdoor_total_employees': glassdoor_total_employees,
+        'glassdoor_total_employees_Encoded': glassdoor_total_employees_Encoded,
         'sucessranking_three_employees': sucessranking_three_employees,
         'glassdoor_recommend_percentage': glassdoor_recommend_percentage,
         'valauation_divide_vdminusyf': valauation_divide_vdminusyf,
         'sucessranking_two_valdivideyear': sucessranking_two_valdivideyear,
         'similar_businessmodel_overseas': similar_businessmodel_overseas,
         'year_operating': year_operating,
-        #'years_to_unicorn': years_to_unicorn,
+        'years_to_unicorn': years_to_unicorn,
         'exit': exit,
         'country': country,
+        'country_Encoded': country_Encoded,
         'patent': patent,
         'pivot': pivot,
-        'subsidiary _corporatespinoff': subsidiary_corporatespinoff,
+        'subsidiary_corporatespinoff': subsidiary_corporatespinoff,
         'firsttime_founder': firsttime_founder,
         'tech_founder': tech_founder,
         'foundersage_when_started': foundersage_when_started,
@@ -326,11 +260,11 @@ def main():
         'investor_yc': investor_yc,
         'investor_insignia': investor_insignia,
         'investor_ggv': investor_ggv,
-        'investor_ wavemaker': investor_wavemaker,
+        'investor_wavemaker': investor_wavemaker,
         'investor_openspace': investor_openspace,
         'investor_alphajwc': investor_alphajwc,
         'investor_jungle': investor_jungle,
-        'investor_ cyberagentcapital': investor_cyberagentcapital,
+        'investor_cyberagentcapital': investor_cyberagentcapital,
     }
 
     # Convert the dictionary to a DataFrame
