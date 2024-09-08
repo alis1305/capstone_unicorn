@@ -173,7 +173,7 @@ def main():
 # Initialize variables for each investor category
     investor_500global = investor_alphajwc = investor_cyberagentcapital = investor_eastvc = investor_ggv = 0
     investor_insignia = investor_jungle = investor_openspace = investor_sequoia = investor_vertex = 0
-    investor_wavemaker = investor_yc = Others = 0
+    investor_wavemaker = investor_yc = investor_others = 0
 # Get user to select the investor(s) that have invested in their company        
     investor = st.multiselect("Select the investor(s) that have invested in your company (you may choose more than one)",
     ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Investor(s) not in the list"],)
@@ -202,7 +202,7 @@ def main():
     if "Y Combinator" in investor:
         investor_yc = 1
     if "Investor(s) not in the list" in investor:
-        Others = 1
+        investor_others = 1
 
     sucessranking_four_gdranking = 0
     sucessranking_three_employees = 0
