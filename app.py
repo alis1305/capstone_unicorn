@@ -89,9 +89,9 @@ def main():
     
 # Get user input for Glassdoor rating and recommendation percentage using sliders
 # Slider for rating between 0.0 and 5.0, default at 3.5
-    glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
+    #glassdoor_rating = st.slider("Glassdoor Rating", 0.0, 5.0, 3.5)
  # Slider for recommendation percentage between 0 and 100, default at 50    
-    glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
+    #glassdoor_recommend_percentage = st.slider("Glassdoor Recommend Percentage", 0, 100, 50)
         
 # Get user input for similar business model overseas
 #similar_businessmodel_overseas = st.selectbox("Similar Business Model Overseas", [0, 1])
@@ -137,7 +137,7 @@ def main():
         tech_founder = 0 # the founding team does not have any tech founder 
 
 # Get user input for the founder's age when they started the company
-    foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=0)
+    #foundersage_when_started = st.number_input("What was the founder's age when they started the company? If there is a team of founders, please provide the average age", min_value=20, max_value=75)
     
 # Get user input if any member of the founding team graduated from overseas unversity 
     graduated_overseas_uni = st.selectbox("Has any member of your founding team graduated from a university outside your home country?", ("Yes", "No"))
@@ -211,6 +211,9 @@ def main():
     year_operating = 0
     years_to_unicorn = 0
     exit = 0
+    foundersage_when_started = 0
+    glassdoor_rating = 0
+    glassdoor_recommend_percentage = 0
 
 # Create a dictionary with the inputs
     input_data = {
