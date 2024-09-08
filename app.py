@@ -176,7 +176,7 @@ def main():
     investor_wavemaker = investor_yc = Others = 0
 # Get user to select the investor(s) that have invested in their company        
     investor = st.multiselect("Select the investor(s) that have invested in your company (you may choose more than one)",
-    ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Others"],)
+    ["500 Global","Alpha JWC","Cyber Agent Capital","East Venture","Golden Gate Venture","Insignia","Jungle Venture","Openspace VC", "Sequoia","Vertex","Wavemaker", "Y Combinator", "Investor(s) not in the list"],)
     if "500 Global" in investor:
         investor_500global = 1
     if "Alpha JWC" in investor:
@@ -201,7 +201,7 @@ def main():
         investor_wavemaker = 1
     if "Y Combinator" in investor:
         investor_yc = 1
-    if "Others" in investor:
+    if "Investor(s) not in the list" in investor:
         Others = 1
 
     sucessranking_four_gdranking = 0
