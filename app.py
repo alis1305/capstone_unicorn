@@ -276,9 +276,9 @@ def main():
         prediction = predict_model(model, data=input_df)
         
         if int(prediction['prediction_label']) == 1:
-            predicted_outcome = "Low"
+            predicted_outcome = "High"
         else:
-            predicted_outcome = "High"            
+            predicted_outcome = "Low"            
         
         st.write("Predicted Startup Success is: ", predicted_outcome)
 
