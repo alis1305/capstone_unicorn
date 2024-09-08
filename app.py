@@ -219,7 +219,7 @@ def main():
         'web3': web3,
         'ecommerce': ecommerce,
         'consumer_others': consumer_others,
-        'edtech ': edtech,
+        'edtech': edtech,
         'esg': esg,
         'enterprise_saas': enterprise_saas,
         'others': others,
@@ -265,6 +265,7 @@ def main():
         'investor_alphajwc': investor_alphajwc,
         'investor_jungle': investor_jungle,
         'investor_cyberagentcapital': investor_cyberagentcapital,
+        'investor_others': investor_others,
     }
 
     # Convert the dictionary to a DataFrame
